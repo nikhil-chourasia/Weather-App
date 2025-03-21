@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="heading">
+            <div class="animated-container">
+                <!-- <img src="../static/minimalist-sun.png" alt="" id="sun">
+                <img src="../static/minimalist-cloud-clean.png" alt="" id="cloud"> -->
+                <img src="{{ url_for('static', filename='minimalist-sun.png') }}" alt="" id="sun">
+                <img src="{{ url_for('static', filename='minimalist-cloud-clean.png') }}" alt="" id="cloud">
+            </div>
+            <h1>Check Weather</h1>
+        </div>
+        <form method="post">
+            <div>
+                <input type="text" name="city" placeholder="Enter location name">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <div class="temp-wrapper">
+            <div class="temp">
+                <p class="temperature">{{weather.temp}}</p>
+                <p class="cityname">{{weather.city}}</p>
+            </div>
+            <div class="temp-border"></div>
+        </div>
+        <div class="report">
+            <div class="box feel">
+                <div class="fields">
+                    Feels Like
+                </div>
+                <div class="values">
+                    {{weather.feel}}
+                </div>
+            </div>
+            <div class="box humidity">
+                <div class="fields">
+                    Humidity
+                </div>
+                <div class="values">
+                    {{weather.humidity}}
+                </div>
+            </div>
+            <div class="box wind">
+                <div class="fields">
+                    Wind
+                </div>
+                <div class="values">
+                    {{weather.wind}}
+                </div>
+            </div>
+            <div class="box rain">
+                <div class="fields">
+                    Precipitation
+                </div>
+                <div class="values">
+                    {{weather.rain}}
+                </div>
+            </div>
+            <div class="box conditions">
+                <div class="condition">
+                    {{weather.conditions}}
+                </div>
+            </div>
+            <div class="box uv">
+                <div class="fields">
+                    UV Index
+                </div>
+                <div class="values">
+                    {{weather.uv}}
+                </div>
+            </div>
+            <div class="box description">{{weather.description}}</div>
+        </div>
+    </div>
+</body>
+</html>
